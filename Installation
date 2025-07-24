@@ -1,2 +1,5 @@
 sudo dnf install java-17-amazon-corretto -y
-java -version  # confirm version
+sudo alternatives --config java
+java -version
+sudo systemctl restart jenkins
+
