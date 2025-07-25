@@ -50,6 +50,8 @@ terraform -version
 
 ## Jenkins pipeline ##
 
+MULTISTAGE JENKINS FILE
+
 pipeline {
     agent any
 
@@ -82,4 +84,25 @@ pipeline {
     }
 }
 ###################################################
+SINGLR STAGE
 
+pipeline {
+    agent any
+
+    stages {
+        stage('git checkout') {
+            steps {
+               git branch: 'main', url: 'https://github.com/Udaypatil0730/TerraformCICD.git' 
+            }
+        }
+ stage('terraform process') {
+            steps {
+            sh 'terraform init'
+            sh 'terraform plan'
+            sh 'terraform apply'
+
+            }
+        }
+    }
+}
+#############################################################################
