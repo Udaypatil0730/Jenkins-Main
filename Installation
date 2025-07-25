@@ -36,3 +36,15 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 
 echo "🌐 Access Jenkins UI via: http://<your-ec2-public-ip>:8080"
 echo "🔓 Use the password above to unlock Jenkins web UI."
+
+
+## Terraform install##
+
+sudo dnf update -y
+sudo dnf install -y yum-utils
+sudo dnf install -y unzip curl
+
+sudo dnf config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo
+sudo dnf install -y terraform
+terraform -version
+
